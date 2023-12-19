@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="737.0" prefWidth="1064.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="PresentationLayer.TrainingDataController">
+   <children>
+      <Button layoutX="832.0" layoutY="59.0" mnemonicParsing="false" onAction="#SwitchToAnnotationScene" prefHeight="46.0" prefWidth="227.0" stylesheets="@fullpackstyling.css" text="Switch To Annotation scene">
+         <graphic>
+            <ImageView fitHeight="39.0" fitWidth="39.0">
+               <image>
+                  <Image url="@icons8_add_font_50px_1.png" />
+               </image>
+            </ImageView>
+         </graphic></Button>
+      <Button fx:id="BtnChangeToArff" layoutX="438.0" layoutY="157.0" mnemonicParsing="false" onAction="#ChangeToArffFile" prefHeight="26.0" prefWidth="150.0" stylesheets="@fullpackstyling.css" text="Change to ARFF file" />
+      <Button fx:id="btnOpenFile" layoutX="179.0" layoutY="30.0" mnemonicParsing="false" onAction="#OpenFile" prefHeight="26.0" prefWidth="150.0" stylesheets="@fullpackstyling.css" text="Open file" />
+      <Label layoutX="17.0" layoutY="34.0" prefHeight="18.0" prefWidth="104.0" text="1-Annoted file : " />
+      <Label fx:id="lblFileName" layoutX="346.0" layoutY="34.0" prefHeight="20.0" prefWidth="182.0" text="No file is open" textFill="RED" />
+      <Label layoutX="17.0" layoutY="80.0" text="2-Relation Name :" />
+      <TextField fx:id="txtRelatName" focusTraversable="false" layoutX="179.0" layoutY="76.0" prefWidth="150.0" stylesheets="@style.css" />
+      <ComboBox fx:id="ComBoxLang" layoutX="179.0" layoutY="113.0" prefWidth="150.0" promptText="Language" stylesheets="@fullpackstyling.css" />
+      <Label layoutX="17.0" layoutY="208.0" prefHeight="18.0" prefWidth="68.0" text="Arff file :" />
+      <Button fx:id="btnOpenArff" layoutX="110.0" layoutY="204.0" mnemonicParsing="false" onAction="#OpenArffFile" prefHeight="26.0" prefWidth="120.0" stylesheets="@fullpackstyling.css" text="Open file" />
+      <Label fx:id="lblArffFile" layoutX="110.0" layoutY="239.0" prefHeight="18.0" prefWidth="182.0" text="No file is open" textFill="RED" />
+      <Button fx:id="btnDataTraining" layoutX="110.0" layoutY="269.0" mnemonicParsing="false" onAction="#TrainingYourData" prefHeight="26.0" prefWidth="120.0" stylesheets="@fullpackstyling.css" text="Training your data" />
+      <TextArea fx:id="TextResults" layoutX="7.0" layoutY="303.0" prefHeight="426.0" prefWidth="650.0" />
+      <Button layoutX="482.0" layoutY="269.0" mnemonicParsing="false" onAction="#SaveModel" prefHeight="26.0" prefWidth="150.0" stylesheets="@fullpackstyling.css" text="Save Your Model" />
+      <Button layoutX="666.0" layoutY="238.0" mnemonicParsing="false" onAction="#OpenFileTest" prefHeight="26.0" prefWidth="171.0" stylesheets="@fullpackstyling.css" text="2-Open A File To Test" />
+      <TextArea fx:id="TextResultPrediction" layoutX="666.0" layoutY="303.0" prefHeight="426.0" prefWidth="386.0" />
+      <Button layoutX="880.0" layoutY="238.0" mnemonicParsing="false" onAction="#Predict" prefHeight="26.0" prefWidth="171.0" stylesheets="@fullpackstyling.css" text="3-Predict" />
+      <Button layoutX="666.0" layoutY="166.0" mnemonicParsing="false" onAction="#OpenModel" prefHeight="26.0" prefWidth="171.0" stylesheets="@fullpackstyling.css" text="1-Open Model" />
+      <Button layoutX="179.0" layoutY="157.0" mnemonicParsing="false" onAction="#CreateBagOfWords" prefHeight="26.0" prefWidth="150.0" stylesheets="@fullpackstyling.css" text="Create your bag of words" />
+      <Label layoutX="17.0" layoutY="117.0" text="3-Choose the language : " />
+      <Label layoutX="17.0" layoutY="161.0" prefHeight="18.0" prefWidth="161.0" text="4-Create your bag of words :" />
+      <Label layoutX="342.0" layoutY="161.0" prefHeight="18.0" prefWidth="96.0" text="5-(Optional)" />
+      <Button layoutX="831.0" layoutY="6.0" mnemonicParsing="false" onAction="#SwitchToHome" prefHeight="46.0" prefWidth="227.0" stylesheets="@fullpackstyling.css" text="SwitchSwitch To Home">
+         <graphic>
+            <ImageView fitHeight="39.0" fitWidth="39.0">
+               <image>
+                  <Image url="@icons8_home_page_50px_3.png" />
+               </image>
+            </ImageView>
+         </graphic></Button>
+      <Label fx:id="lblFileTest" layoutX="672.0" layoutY="273.0" prefHeight="20.0" prefWidth="227.0" text="No file is open" textFill="RED" />
+      <Label fx:id="lblmodelFile" layoutX="666.0" layoutY="204.0" prefHeight="20.0" prefWidth="211.0" text="No model is open" textFill="RED" />
+      <Label fx:id="lblProgArff" layoutX="438.0" layoutY="196.0" prefHeight="18.0" prefWidth="150.0" textFill="RED" />
+      <Button layoutX="880.0" layoutY="128.0" mnemonicParsing="false" onAction="#getMongoDbComments" prefHeight="26.0" prefWidth="171.0" stylesheets="@fullpackstyling.css" text="MongoDb comments" />
+      <ComboBox fx:id="ComBoxMongoProduct" layoutX="880.0" layoutY="166.0" prefHeight="20.0" prefWidth="171.0" promptText="Product" stylesheets="@fullpackstyling.css" />
+      <Button layoutX="880.0" layoutY="202.0" mnemonicParsing="false" onAction="#SaveMongoComments" prefHeight="26.0" prefWidth="171.0" stylesheets="@fullpackstyling.css" text="Save Comments" />
+   </children>
+</AnchorPane>

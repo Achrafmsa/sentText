@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox prefHeight="768.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="PresentationLayer.AnnotationSceneController">
+  <children>
+    <MenuBar VBox.vgrow="NEVER">
+      <menus>
+        <Menu mnemonicParsing="false" text="File">
+          <items>
+            <MenuItem mnemonicParsing="false" text="New" />
+            <MenuItem mnemonicParsing="false" onAction="#OpenProject" text="Open…" />
+            <Menu mnemonicParsing="false" text="Open Recent" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Close" />
+            <MenuItem mnemonicParsing="false" onAction="#SaveProject" text="Save" />
+            <MenuItem mnemonicParsing="false" text="Save As…" />
+            <MenuItem mnemonicParsing="false" text="Revert" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Preferences…" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Quit" />
+          </items>
+        </Menu>
+        <Menu mnemonicParsing="false" text="Edit">
+          <items>
+            <MenuItem mnemonicParsing="false" text="Undo" />
+            <MenuItem mnemonicParsing="false" text="Redo" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Cut" />
+            <MenuItem mnemonicParsing="false" text="Copy" />
+            <MenuItem mnemonicParsing="false" text="Paste" />
+            <MenuItem mnemonicParsing="false" text="Delete" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Select All" />
+            <MenuItem mnemonicParsing="false" text="Unselect All" />
+          </items>
+        </Menu>
+        <Menu mnemonicParsing="false" text="Help">
+          <items>
+            <MenuItem mnemonicParsing="false" text="About MyHelloApp" />
+          </items>
+        </Menu>
+      </menus>
+    </MenuBar>
+    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="744.0" prefWidth="1329.0" VBox.vgrow="ALWAYS">
+         <children>
+            <Pane layoutX="219.0" layoutY="84.0" prefHeight="583.0" prefWidth="1141.0">
+               <children>
+                  <ComboBox fx:id="ComBoxCommentList" focusTraversable="false" layoutX="3.0" layoutY="11.0" prefHeight="38.0" prefWidth="186.0" promptText="Choose your comment list" stylesheets="@fullpackstyling.css" />
+                  <Button fx:id="btnUndoFromAnnotation" focusTraversable="false" layoutX="581.0" layoutY="295.0" mnemonicParsing="false" onAction="#UndoFromAnnotation" prefHeight="50.0" prefWidth="52.0" stylesheets="@style.css" text="&lt;">
+                     <font>
+                        <Font size="19.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="btnAddToAnnotation" focusTraversable="false" layoutX="581.0" layoutY="232.0" mnemonicParsing="false" onAction="#AddToAnnotation" prefHeight="50.0" prefWidth="52.0" stylesheets="@style.css" text="&gt;">
+                     <font>
+                        <Font size="19.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="btnSelectComList" focusTraversable="false" layoutX="3.0" layoutY="537.0" mnemonicParsing="false" onAction="#SelectAllComList" prefHeight="38.0" prefWidth="123.0" stylesheets="@style.css" text="Select All">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="btnDeselectComList" focusTraversable="false" layoutX="141.0" layoutY="537.0" mnemonicParsing="false" onAction="#DeselectAllComList" prefHeight="38.0" prefWidth="123.0" stylesheets="@style.css" text="Deselect All">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="btnSelectAnnotation" focusTraversable="false" layoutX="639.0" layoutY="537.0" mnemonicParsing="false" onAction="#SeselectAllAnnotation" prefHeight="38.0" prefWidth="123.0" stylesheets="@style.css" text="Select All">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="btnDeselectAnnotation" focusTraversable="false" layoutX="777.0" layoutY="537.0" mnemonicParsing="false" onAction="#DeselectAllAnnotation" prefHeight="38.0" prefWidth="123.0" stylesheets="@style.css" text="Deselect All">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Button>
+                  <ComboBox fx:id="ComBoxAnnotation" focusTraversable="false" layoutX="639.0" layoutY="11.0" prefHeight="38.0" prefWidth="186.0" promptText="Choose the Annotation" stylesheets="@fullpackstyling.css" />
+                  <Button fx:id="btnAddComments" focusTraversable="false" layoutX="357.0" layoutY="11.0" mnemonicParsing="false" onAction="#AddComments" prefHeight="38.0" prefWidth="214.0" stylesheets="@style.css" text="Add comments to this list">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="btnSaveToFile" focusTraversable="false" layoutX="915.0" layoutY="537.0" mnemonicParsing="false" onAction="#SaveAllToFile" prefHeight="38.0" prefWidth="123.0" stylesheets="@style.css" text="Save all in a file">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Button>
+                  <ListView fx:id="CommentListView" focusTraversable="false" layoutX="3.0" layoutY="58.0" prefHeight="470.0" prefWidth="571.0" />
+                  <ListView fx:id="AnnotationListView" focusTraversable="false" layoutX="639.0" layoutY="58.0" prefHeight="470.0" prefWidth="471.0" />
+                  <Button fx:id="btnRemoveAnnotation" focusTraversable="false" layoutX="840.0" layoutY="11.0" mnemonicParsing="false" onAction="#RemoveAnnotation" prefHeight="38.0" prefWidth="139.0" stylesheets="@style.css" text="Remove" />
+                  <Button fx:id="btnRemoveCommentList" focusTraversable="false" layoutX="203.0" layoutY="11.0" mnemonicParsing="false" onAction="#RemoveCommentList" prefHeight="38.0" prefWidth="139.0" stylesheets="@style.css" text="Remove" />
+               </children>
+            </Pane>
+            <VBox layoutX="-1.0" layoutY="-3.0" prefHeight="746.0" prefWidth="219.0" spacing="5.0">
+               <children>
+                  <Button mnemonicParsing="false" onAction="#SwitchToHome" prefHeight="98.0" prefWidth="214.0" stylesheets="@fullpackstyling.css" text="Switch to Home" wrapText="true">
+                     <graphic>
+                        <ImageView>
+                           <image>
+                              <Image url="@icons8_home_page_50px_3.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets left="2.0" top="5.0" />
+                     </VBox.margin></Button>
+                  <Button fx:id="BtnCrawlerScene" mnemonicParsing="false" onAction="#SwitchToCrawlerScene" prefHeight="98.0" prefWidth="214.0" stylesheets="@fullpackstyling.css" text="Switch to Web Crawler">
+                     <VBox.margin>
+                        <Insets left="2.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                     <graphic>
+                        <ImageView>
+                           <image>
+                              <Image url="@icons8_spider-man_new_50px.png" />
+                           </image>
+                        </ImageView>
+                     </graphic></Button>
+                  <Button mnemonicParsing="false" onAction="#SwitchToTrainingScene" prefHeight="98.0" prefWidth="214.0" stylesheets="@fullpackstyling.css" text="Switch to Training scene">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                     <graphic>
+                        <ImageView>
+                           <image>
+                              <Image url="@icons8_analyze_50px_2.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <VBox.margin>
+                        <Insets left="2.0" />
+                     </VBox.margin></Button>
+               </children></VBox>
+            <Pane layoutX="172.0" layoutY="6.0" prefHeight="90.0" prefWidth="1105.0">
+               <children>
+                  <Button fx:id="btnCreateAnnotation" focusTraversable="false" layoutX="887.0" layoutY="23.0" mnemonicParsing="false" onAction="#CreateAnnotation" prefHeight="38.0" prefWidth="139.0" stylesheets="@style.css" text="Create(ClickEnter)" />
+                  <TextField fx:id="TxfAnnotation" focusTraversable="false" layoutX="687.0" layoutY="23.0" prefHeight="38.0" prefWidth="186.0" promptText="Create annotation " stylesheets="@style.css" />
+                  <Button fx:id="btnCreateCommentList" focusTraversable="false" layoutX="251.0" layoutY="23.0" mnemonicParsing="false" onAction="#CreateCommentList" prefHeight="38.0" prefWidth="139.0" stylesheets="@style.css" text="Create(ClickEnter)" />
+                  <TextField fx:id="TxfCommentList" focusTraversable="false" layoutX="52.0" layoutY="23.0" prefHeight="38.0" prefWidth="186.0" promptText="Create Comment list" stylesheets="@style.css" />
+               </children>
+            </Pane>
+         </children>
+    </AnchorPane>
+  </children>
+</VBox>

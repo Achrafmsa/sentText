@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.web.WebView?>
+
+<AnchorPane prefHeight="795.0" prefWidth="1293.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="PresentationLayer.WebCrawlerController">
+   <children>
+      <FlowPane layoutX="14.0" layoutY="31.0" prefHeight="28.0" prefWidth="1279.0">
+         <children>
+            <Button mnemonicParsing="false" onAction="#previousPage" prefWidth="30.0" stylesheets="@fullpackstyling.css" text="&lt;">
+               <FlowPane.margin>
+                  <Insets right="5.0" />
+               </FlowPane.margin>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#nextPage" prefWidth="30.0" stylesheets="@fullpackstyling.css" text="&gt;">
+               <FlowPane.margin>
+                  <Insets right="5.0" />
+               </FlowPane.margin>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#refreshPage" prefWidth="30.0" stylesheets="@fullpackstyling.css" text="()">
+               <FlowPane.margin>
+                  <Insets right="5.0" />
+               </FlowPane.margin>
+            </Button>
+            <TextField fx:id="TXFURL" prefHeight="28.0" prefWidth="1017.0" stylesheets="@style.css" />
+            <Label fx:id="labelLoadingState" prefHeight="25.6" prefWidth="142.0" textFill="RED">
+               <FlowPane.margin>
+                  <Insets left="5.0" />
+               </FlowPane.margin>
+            </Label>
+         </children>
+      </FlowPane>
+      <TabPane layoutX="2.0" layoutY="117.0" prefHeight="633.0" prefWidth="1275.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab text="Web view">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="558.0" prefWidth="1275.0">
+                     <children>
+                        <WebView fx:id="webView" prefHeight="567.0" prefWidth="1259.0" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+            <Tab text="List view">
+              <content>
+                <AnchorPane maxHeight="-Infinity" minHeight="0.0" minWidth="0.0" prefHeight="569.0" prefWidth="1275.0">
+                     <children>
+                        <ListView fx:id="CommentListView" layoutX="13.0" layoutY="36.0" prefHeight="530.0" prefWidth="1244.0" />
+                        <Button layoutX="145.0" layoutY="568.0" mnemonicParsing="false" onAction="#SaveAllToFile" prefHeight="35.0" prefWidth="122.0" stylesheets="@style.css" text="Save all in a file" />
+                        <Label fx:id="labelNumberOfComments" layoutX="14.0" layoutY="14.0" prefHeight="18.0" prefWidth="126.0" textFill="RED" />
+                        <Button layoutX="276.0" layoutY="568.0" mnemonicParsing="false" onAction="#RemoveFromListView" prefHeight="35.0" prefWidth="122.0" stylesheets="@fullpackstyling.css" text="Remove selection" />
+                        <ComboBox fx:id="ComBoxCommentList" layoutX="138.0" layoutY="5.0" prefWidth="150.0" stylesheets="@fullpackstyling.css" />
+                        <TextField fx:id="TxfCommentList" layoutX="315.0" layoutY="6.0" stylesheets="@style.css" />
+                        <Button layoutX="495.0" layoutY="6.0" mnemonicParsing="false" onAction="#CreateCommentList" prefHeight="26.0" prefWidth="141.0" stylesheets="@fullpackstyling.css" text="Create Comment List" />
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+      <ProgressBar fx:id="WebProgressBar" layoutX="119.0" layoutY="61.0" prefHeight="7.0" prefWidth="1017.0" progress="0.0" stylesheets="@styleCss.css" />
+      <Button layoutX="1034.0" layoutY="717.0" mnemonicParsing="false" onAction="#SwitchToAnnotationScene" prefHeight="70.0" prefWidth="221.0" stylesheets="@fullpackstyling.css" text="Switch to Annotation scene">
+         <graphic>
+            <ImageView>
+               <image>
+                  <Image url="@icons8_add_font_50px_1.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <TextField fx:id="TXFElement" layoutX="292.0" layoutY="71.0" prefHeight="34.0" prefWidth="161.0" promptText="Comment element" stylesheets="@style.css">
+         <font>
+            <Font size="15.0" />
+         </font></TextField>
+      <Button layoutX="119.0" layoutY="71.0" mnemonicParsing="false" onAction="#CrawlingByElement" prefHeight="34.0" prefWidth="161.0" stylesheets="@fullpackstyling.css" text="Single page crawling" />
+      <Button layoutX="803.0" layoutY="717.0" mnemonicParsing="false" onAction="#SwitchToHome" prefHeight="70.0" prefWidth="221.0" stylesheets="@fullpackstyling.css" text="Switch To Home">
+         <graphic>
+            <ImageView>
+               <image>
+                  <Image url="@icons8_home_page_50px_3.png" />
+               </image>
+            </ImageView>
+         </graphic></Button>
+      <TextField fx:id="TXFPageEle" layoutX="463.0" layoutY="71.0" prefHeight="34.0" prefWidth="161.0" promptText="Pages element " stylesheets="@style.css">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </TextField>
+      <Button layoutX="803.0" layoutY="71.0" mnemonicParsing="false" onAction="#CrawlingMultiple" prefHeight="34.0" prefWidth="161.0" stylesheets="@fullpackstyling.css" text="Multiple pages crawling" />
+      <TextField fx:id="TXFPageEle1" layoutX="633.0" layoutY="71.0" prefHeight="34.0" prefWidth="161.0" promptText="Number of pages" stylesheets="@style.css">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </TextField>
+   </children>
+</AnchorPane>
