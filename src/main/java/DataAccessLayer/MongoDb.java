@@ -29,7 +29,7 @@ public class MongoDb {
 
 
     public static MongoCollection GetDataMongoDb(String DbName, String Collection) {
-        connectionString = new ConnectionString("mongodb+srv://admin:123456khalid@cluster0.rzgkt.mongodb.net/?retryWrites=true&w=majority");
+        connectionString = new ConnectionString("");
         settings = MongoClientSettings.builder().applyConnectionString(connectionString).build();
         mongoClient = MongoClients.create(settings);
         database = mongoClient.getDatabase(DbName);
@@ -49,7 +49,7 @@ public class MongoDb {
                 .method("POST", body)
                 .addHeader("Content-Type", "application/json")
                 .addHeader("Access-Control-Request-Headers", "*")
-                .addHeader("api-key", "cAjlGnxlgXvmEz3o97JQ8HrK9nA1U1pTRQQaeyESKHN4BAjzyPRrZHQTkcOZ7a1d")
+                .addHeader("api-key", "")
                 .build();
 
         response=client.newCall(request).execute();
